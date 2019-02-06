@@ -1,0 +1,18 @@
+h5{
+    color: black;
+}
+
+h6{
+    color: navy ;
+    font-style: italic ;
+}
+
+a{
+    border : 2px solid blue;
+    border-radius: 5px ;
+    background-color: aqua ;
+    text-decoration: none ;
+    margin-right: 3em;
+    
+    margin-top: 2em;
+}

@@ -1,0 +1,25 @@
+
+<div class = "container">
+
+
+    <div class = "row">
+        <div class = "col-xs-12">
+                <button type = "button" class = "btn btn-primary" (click) = "getdata()">SHOW DATA</button>
+            </div>
+        </div>
+
+<div class  = "row">
+
+<a routerLink = ""  *ngFor = "let item of userdata ; let i = index" class = "col-lg-5 col-md-5 col-sm-5">
+                    
+    <h5> NAME : {{item.name | uppercase}} </h5>
+    <h5> ADDRESS : {{item.address}} </h5>
+    <h5> EMAIL : {{item.email}} </h5>
+    <h5> GENDER : {{ item.gender }} </h5>
+    <h5> USER : {{item.user}} </h5>
+    <br>
+    <h6 > APPLYON :   {{item.date}} </h6>
+</a>
+
+</div>
+</div>
