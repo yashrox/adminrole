@@ -17,6 +17,7 @@ export class Request {
         return this.httpclient.get('https://admintask-d041e.firebaseio.com/formuser.json?auth=' + newtok )
         
         .subscribe( (newdata) => {
+            console.log(newdata);
             this.userser.setvalue(newdata)
         } )
     }
@@ -25,8 +26,9 @@ export class Request {
         
         let newtok = this.getTokken()
         return this.httpclient.put('https://admintask-d041e.firebaseio.com/formuser.json?auth=' + newtok , 
-        this.userser.getdetail() , {observe : 'response'})
+        this.userser.getdetail() )
     
+        console.log(this.userser.getdetail())
         
     }
     
@@ -51,6 +53,7 @@ export class Request {
                  })
                 .catch( (err) => console.log(err.message) )
             
+                alert("TOKEN IS AVAILABLE")
         }
     
     getTokken(){
@@ -60,12 +63,16 @@ export class Request {
             return this.tokken ;    
     }
     
+    
     isAuthenticated(){
       return this.tokken != null ;
     }
+    
     
     logout(){
                 firebase.auth().signOut();
                 this.tokken = null ;
     }
+
+    
 }

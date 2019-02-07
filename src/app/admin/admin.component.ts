@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
   
         this.userdata = this.userser.getdetail() ;
-        this.userser.newuser.subscribe( (value : DETAILS[]) => { this.userdata = value    } )
+        this.userser.newuser.subscribe( (value) => { this.userdata = value    } )
     
   }
 

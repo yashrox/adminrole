@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild } from '@angular/core';
 import {FormGroup , FormControl , Validators} from '@angular/forms'
 import {formdata} from '../services/formdata.service'
 import {Request} from '../services/formrequest.services'
@@ -14,6 +14,8 @@ export class UserformComponent implements OnInit {
   constructor( private userser : formdata  , private requests  : Request , private router  : Router) { }
 
   signup  : FormGroup ;
+  
+  @ViewChild('e') check : FormControl
   
   ngOnInit() {
                 this.signup = new FormGroup( {
@@ -31,8 +33,10 @@ export class UserformComponent implements OnInit {
   }
 
 onclick(){
-  
-  
+    
+              console.log(this.signup);
+              console.log(this.check);
+              
     let username = this.signup.value.name ;
     let email = this.signup.value.email ;
     let address = this.signup.value.address ;
@@ -41,12 +45,18 @@ onclick(){
     
     this.userser.newdetail(username , email , address  , gender , user ) ;
     
-  
     this.requests.onputdata().subscribe( (response) => { console.log(response) } )
   
-    this.router.navigate(['/home'])
+    alert("your form is submitted sucessfully");
+    this.router.navigate(['/admin'])
+  
+    
   
 }
+  
+  alertfun(){
+      alert("FILL ALL THE DETAILS");
+  }
   
   
   

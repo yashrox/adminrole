@@ -15,7 +15,9 @@ export class formdata implements OnInit{
     
        newuser = new EventEmitter<DETAILS[]>() ;
         
-        private details : DETAILS[] = [  ] 
+        private details : DETAILS[] = [ 
+                            
+            ] 
         
         getdetail(){
             return this.details ;

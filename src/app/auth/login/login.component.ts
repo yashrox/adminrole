@@ -22,8 +22,16 @@ export class LoginComponent implements OnInit {
       let password =  f.value.password ;
     
     this.reqser.onlogin(username , password);
+     
+     
+     setTimeout(() => {
+       this.reqser.ongetdata() ;
+     } , 1200)
           
+     
       this.route.navigate(['/forms']) ;    
-  }  
+  
+     
+   }  
 
 }
