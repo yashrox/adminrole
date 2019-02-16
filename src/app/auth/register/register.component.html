@@ -9,18 +9,50 @@
                             <form #f = "ngForm" (ngSubmit) = "onclick(f)">
                                     <div class = "form-group">
                                         <label for="username">USERNAME</label>
-                    <input type="email" name="username" ngModel class = "form-control" required email #e>
-                                                                
+                    <input type="email" name="username" ngModel class = "form-control" 
+                       pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" adminValidation = "e.value"
+                    required email #e = "ngModel" >
+                      <span *ngIf = "!e.valid && e.touched" class = "help-block"> 
+                      <span *ngIf = "e.errors?.required">EMAIL IS REQUIRED</span>
+                        <span *ngIf = "e.errors?.nameIsForbidden">CHOOSE ANOTHER EMAIL</span> 
+                        <span *ngIf = "e.errors?.pattern">EMAIL PATTERN SHOULD LIKE (john@gmail.com)</span>    
+                                                  
+                        </span>                                          
+                                       
                                         </div>
+                      
                       <div class = "form-group">
                         <label for="pass">PASSWORD</label>
-                    <input type="password" name="password" ngModel class = "form-control" required>
+            <input type="password" name="password" [(ngModel)] = "pass" class = "form-control"  required  
+             passpattern 
+             [pattern] = "pattr"
+            #p = "ngModel" >
+
+            <p class = "help-block"  style = "color: red" [ngClass] = "{change : upper === true  }" > it should contain a Uppercase </p>
+            <p class = "help-block"  style = "color: red" [ngClass] = "[(lower == true) ? 'change' : 'def' ]" > it should contain a Lowercase </p>
+            <p class = "help-block" style = "color: red" [ngClass] = "{change : num === true }" > it should contain a Number </p>
+            <p class = "help-block" style = "color: red" [ngClass] = "{change : special === true}"> it should contain a Special Character </p> 
+            
+            <span *ngIf = "p.touched && p.errors?.pattern"> 
+               PASSWORD IS INVALID
+            </span>
+           
+           
+            <span *ngIf = "p.touched && p.errors?.one included" class = "help-block" style = "color: red ;"> 
+            Average Strength </span>
+            <span *ngIf = "p.touched && p.errors?.all included" style = "color: blue ;"> Strong Strength </span>
+                        
                                 
-                                </div>
+            </div>
+                                
+            <div>
+                <span *ngIf = "errvalue"> {{errvalue}} USE DIFFERENT  </span>
+                </div>                    
                                 
                                 
                     <div class ="form-group">
-                        <button type ="submit" class ="btn btn-primary" [disabled] = "!f.valid" >SIGNUP</button>
+                        <button type ="submit" class ="btn btn-primary" [disabled]  = "!f.valid" >
+                            SIGNUP</button>
                         </div>
                                 
                                 </form>

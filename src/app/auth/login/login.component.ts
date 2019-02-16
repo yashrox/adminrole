@@ -13,8 +13,14 @@ export class LoginComponent implements OnInit {
 @ViewChild('f') signup : NgForm
 
   constructor(private reqser : Request ,  private route : Router) { }
-
+    
+    errval : string
+    
   ngOnInit() {
+    
+    this.errval = this.reqser.result
+        console.log("err value" + this.errval); 
+    
   }
 
    onclick(f : NgForm) {
@@ -31,7 +37,17 @@ export class LoginComponent implements OnInit {
      
       this.route.navigate(['/forms']) ;    
   
-     
+     console.log(this.signup);
+  
+    
+       
    }  
 
+
+    //password validation
+    
+    
+        
+    
+    
 }

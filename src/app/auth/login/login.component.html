@@ -10,14 +10,19 @@
                                     <div class = "form-group">
                                         <label for="username">USERNAME</label>
                     <input type="email" name="username" ngModel class = "form-control" required email #e>
-                                                                
+            
+                                    <span *ngIf = "!e.valid && e.touched"> Password is required</span>                                
                                         </div>
                       <div class = "form-group">
                         <label for="pass">PASSWORD</label>
-                    <input type="password" name="password" ngModel class = "form-control" required>
+                    <input type="password" name="password" ngModel class = "form-control" required >
+                   
                                 
                                 </div>
                                 
+                                <div>
+                                    <span  *ngIf = "errval" class = "help-block" class = "comm"> {{errval}}  </span>
+                                    </div>
                                 
                     <div class ="form-group">
                         <button type ="submit" class ="btn btn-primary" [disabled] = "!f.valid" >SIGNUP</button>

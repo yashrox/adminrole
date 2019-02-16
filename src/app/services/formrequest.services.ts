@@ -1,14 +1,20 @@
 import { HttpClient  , HttpParams } from '@angular/common/http' ;
-import {Injectable} from '@angular/core' ; 
+import {Injectable , EventEmitter} from '@angular/core' ; 
 import {DETAILS} from './user.model' ;
 import {formdata} from './formdata.service' ;
 import * as firebase  from 'firebase' ;
+//import {Subject} from 'rxjs/Subject' ;
+import {Router } from '@angular/router' ;
 
 @Injectable()
 export class Request {
-    constructor(private httpclient : HttpClient  , private userser  : formdata ){}
+    constructor(private httpclient : HttpClient  , private userser  : formdata  , 
+    private router : Router){}
     
-    tokken : string 
+    result : string ;
+    tokken : string ;
+    resultreg : string ;    
+    
     
     ongetdata(){
                 
@@ -32,33 +38,59 @@ export class Request {
         
     }
     
+    
 
     //firebase authentication 
         
         onregister(username : string , password : string){
                 
                 firebase.auth().createUserWithEmailAndPassword(username , password)
-                .then( (response) => console.log(response) )
-                .catch( (err) => console.log(err.message) )
+                .then( (response) => {
+                    this.resultreg = " " ;
+                    console.log(response) })
+                .catch( (err) => {
+                    console.log(err.message)
+                    this.resultreg = err.message
+                    this.router.navigate(['/register'])
+                } )
             
+        
+        
         }
+        
+        
+        
         
         onlogin(username : string , password : string){
             firebase.auth().signInWithEmailAndPassword(username , password)
                 .then( (response) => {
                             
                             firebase.auth().currentUser.getIdToken()
-                            .then((tok) => { this.tokken = tok })
-                            .catch((err) => console.log(err.message))
-                 })
-                .catch( (err) => console.log(err.message) )
+                            .then((tok) => { this.tokken = tok 
+                               
+                                this.result = " " ;
+                            })
+                            .catch((err) => console.log(err.message) )
+                                
+                            })
+                            .catch( (err) => {
+                                console.log(err.message)
+                                this.result = err.message  
+                              
+                                this.router.navigate(['/login'])
+                            } )
+        
+                 }
+                
             
-                alert("TOKEN IS AVAILABLE")
-        }
+                
+        
     
     getTokken(){
                     firebase.auth().currentUser.getIdToken()
-                    .then( (tok) => { this.tokken = tok } )
+                    .then( (tok) => { this.tokken = tok ;
+                        alert("TOKEN IS AVAILABLE") ;
+                    } )
                     .catch((err) => console.log(err.message) )
             return this.tokken ;    
     }
@@ -67,6 +99,7 @@ export class Request {
     isAuthenticated(){
       return this.tokken != null ;
     }
+   
     
     
     logout(){
@@ -74,5 +107,5 @@ export class Request {
                 this.tokken = null ;
     }
 
-    
+   
 }
