@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private reqser : Request ,  private route : Router) { }
     
     errval : string
+    adminuser : string
     
   ngOnInit() {
     
@@ -25,7 +26,10 @@ export class LoginComponent implements OnInit {
 
    onclick(f : NgForm) {
       let username = f.value.username ;
+      this.adminuser = f.value.username;
+    
       let password =  f.value.password ;
+    
     
     this.reqser.onlogin(username , password);
      

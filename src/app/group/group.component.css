@@ -1,0 +1,27 @@
+h1{
+    margin-bottom: 1em;
+    font-family: 'Coiny', cursive;
+    
+}
+
+table{
+    border : 2px solid black;
+    border-radius: 2px;
+}
+
+label{
+    text-align:  center ;
+    color: grey;
+    font-size: 1em;
+    padding: 0.5em;
+}
+
+h2{
+    background-color: black;
+    text-align: center ;
+}
+
+a{
+    text-decoration: none;
+    
+}

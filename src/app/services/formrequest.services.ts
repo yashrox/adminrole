@@ -29,6 +29,8 @@ export class Request {
     }
         
     onputdata(){
+            
+                console.log("put request");
         
         let newtok = this.getTokken()
         return this.httpclient.put('https://admintask-d041e.firebaseio.com/formuser.json?auth=' + newtok , 
@@ -59,15 +61,17 @@ export class Request {
         }
         
         
-        
+    adminuser : string   
         
         onlogin(username : string , password : string){
+            this.adminuser = username ;
+            
             firebase.auth().signInWithEmailAndPassword(username , password)
                 .then( (response) => {
                             
                             firebase.auth().currentUser.getIdToken()
                             .then((tok) => { this.tokken = tok 
-                               
+                               alert("TOKKEN GENERATED")
                                 this.result = " " ;
                             })
                             .catch((err) => console.log(err.message) )
@@ -89,7 +93,7 @@ export class Request {
     getTokken(){
                     firebase.auth().currentUser.getIdToken()
                     .then( (tok) => { this.tokken = tok ;
-                        alert("TOKEN IS AVAILABLE") ;
+                        
                     } )
                     .catch((err) => console.log(err.message) )
             return this.tokken ;    
@@ -100,6 +104,17 @@ export class Request {
       return this.tokken != null ;
     }
    
+   
+   checkuser(){
+   
+   if(!this.tokken){
+       alert("PLEASE LOGIN FIRST");
+       this.router.navigate(['/login']);
+   }
+       
+   
+       return this.tokken != null 
+   }
     
     
     logout(){
@@ -108,4 +123,16 @@ export class Request {
     }
 
    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

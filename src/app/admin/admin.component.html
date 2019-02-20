@@ -10,7 +10,7 @@
 
 <div class  = "row">
 
-<a routerLink = ""  *ngFor = "let item of userdata ; let i = index" class = "col-lg-5 col-md-5 col-sm-5">
+<a  [routerLink] = "['/admin' , i]"  *ngFor = "let item of userdata ; let i = index" class = "col-lg-5 col-md-5 col-sm-5 col-xs-12">
                     
     <h5> NAME : {{item.name | uppercase}} </h5>
     <h5> ADDRESS : {{item.address}} </h5>

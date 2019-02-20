@@ -1,3 +1,86 @@
-<p>
-  admindetails works!
-</p>
+<div class = "container">
+    <div class = "row">
+        <div class = "col-xs-12">
+            <form  #f = "ngForm" (ngSubmit) = "onassign()"> 
+                <span *ngIf = "det.mark" class = "pull-right"><i class="glyphicon glyphicon-saved newinc"></i></span>
+                
+                <br>
+                <br>
+                <div class = "form-group">
+                    <label for = "username">NAME</label>
+                    <input type="text" name="name" [ngModel] = "det.name" class = "form-control">
+                </div>
+                
+                <div class = "form-group">
+                    <label for = "email">EMAIL</label>
+                    <input type="text" name="email" [ngModel] = "det.email" class = "form-control">
+                </div>
+                
+                <div class = "form-group">
+                    <label for = "address">ADDRESS</label>
+                    <input type="text" name="address" [ngModel] = "det.address" class = "form-control">
+                </div>
+                
+                <div class = "form-group">
+                    <label for = "gender">GENDER</label>
+                    <input type="text" name="gender" [ngModel] = "det.gender" class = "form-control">
+                    
+                </div>
+                
+                <div class = "form-group">
+                <label for = "user">USER</label>
+                    <input type = "text" name = "user" [ngModel] = "det.user" class = "form-control">
+                    </div>
+                
+                
+                <div class = "form-group" #c>
+                        <span *ngIf = "!det.mark">
+                    <label for = "group">ASSIGN GROUP</label>
+                    <br>
+                    <br>
+                        <input type = "radio" name = "group" value = "groupA" ngModel>
+                        <label>GROUP A</label>
+                        <input type = "radio" name = "group" value = "groupB" ngModel>
+                        <label>GROUP B</label>
+                        <input type = "radio" name = "group" value = "groupC" ngModel>
+                        <label>GROUP C</label>
+                        <input type = "radio" name = "group" value = "groupD" ngModel>
+                        <label>GROUP D</label>
+                        </span>
+                    </div>
+                
+                
+                    <div class = "form-group">
+                       <span *ngIf = "!det.mark">
+                        <select name = "assign" #e ngModel>
+                            <option value = "group-leader">GROUP LEADER</option>
+                            <option value = "frontend">FRONTEND ENGINEER</option>
+                            <option value = "backend">BACKEND ENGINEER</option>
+                            <option value = "database">DATA ANAYLITCS</option>
+                            <option value = "tester">SOFTWARE TESTERS</option>
+                        </select>
+                        </span>
+                        </div>
+                
+                
+            <div class = "pull-right">
+                <button type = "button" class = "btn btn-primary"    (click) = "onindex()" *ngIf = "(ids < (total - 1)) ? true : false">NEXT</button>
+                </div>    
+    
+    <div class = "pull-left">
+                <button type = "button" class = "btn btn-primary" (click) = "offindex()" 
+                *ngIf = "(ids > 0) ? true : false">PREVIOUS</button>
+                </div>    
+            
+            
+                <div class = "form-group" style = "text-align : center">
+                    <button type = "submit" class= "btn btn-primary" *ngIf = "!det.mark">SUBMIT</button>
+            <a  class = "btn btn-primary" 
+            *ngIf = "det.mark" (click) = "onget()" >VIEW ASSIGNED GROUP</a>    
+                    </div>
+                    
+                    
+                </form>
+            </div>
+    </div>
+    </div>

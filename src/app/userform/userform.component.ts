@@ -32,7 +32,7 @@ export class UserformComponent implements OnInit {
     
   }
 
-onclick(){
+onclick()  {
     
               console.log(this.signup);
               console.log(this.check);
@@ -42,6 +42,8 @@ onclick(){
     let address = this.signup.value.address ;
     let gender = this.signup.value.gender ;
     let user  = this.signup.value.user ;
+    
+    console.log(username);
     
     this.userser.newdetail(username , email , address  , gender , user ) ;
     

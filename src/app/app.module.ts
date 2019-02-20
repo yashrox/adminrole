@@ -16,6 +16,10 @@ import { HomeComponent } from './home/home.component' ;
 import { adminvalidate } from './shared/password.directive';
 import {passValidate} from './shared/pass.directive' ;
 import { AdmindetailsComponent } from './admin/admindetails/admindetails.component' ;
+import {groups} from './services/group.services';
+import { GroupComponent } from './group/group.component' ;
+import {authactivate} from './shared/canactivate' ;
+import {admincheck} from './shared/canact.admin';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { AdmindetailsComponent } from './admin/admindetails/admindetails.compone
     LoginComponent,
     AdminComponent,
     HomeComponent,
-    AdmindetailsComponent
+    AdmindetailsComponent,
+    GroupComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,7 @@ import { AdmindetailsComponent } from './admin/admindetails/admindetails.compone
     HttpClientModule
 
   ],
-  providers: [formdata , Request , adminvalidate , passValidate],
+  providers: [formdata , Request , adminvalidate , passValidate , groups,authactivate , admincheck],
   bootstrap: [AppComponent]
 
 })

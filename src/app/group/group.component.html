@@ -1,0 +1,43 @@
+<html>
+    <body>
+        
+        
+        
+        <div class = "container">
+        <h1>THESE ARE ALL GROUPS ASSIGN FOR DIFFERENT PROJECTS</h1>
+        
+        <div class = "row">
+            <div class = "col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            
+            <a [routerLink] = "['/admin' , 'group' , 'groupA']" >
+                
+                
+                    <table>
+                        <h2>GROUP A</h2>
+                <div *ngFor = "let item of groupA">
+                <tr>
+                    <td> <label> {{item.name | uppercase}}           ({{item.assign}}) </label></td>
+                    
+                </tr>
+                </div>
+                    </table>
+                </a>
+            
+                </div>
+            </div>
+        </div>        
+            
+    </body>
+    
+    </html>                                           
+
+
+
+
+
+
+
+
+
+
+
