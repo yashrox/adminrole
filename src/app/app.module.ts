@@ -20,6 +20,7 @@ import {groups} from './services/group.services';
 import { GroupComponent } from './group/group.component' ;
 import {authactivate} from './shared/canactivate' ;
 import {admincheck} from './shared/canact.admin';
+import { GroupAComponent } from './group/group-a/group-a.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {admincheck} from './shared/canact.admin';
     AdminComponent,
     HomeComponent,
     AdmindetailsComponent,
-    GroupComponent
+    GroupComponent,
+    GroupAComponent
   ],
   imports: [
     BrowserModule,

@@ -104,9 +104,9 @@ export class AdmindetailsComponent implements OnInit {
   onget(){
               this.grp.ongetdataA() ;
               
-              setTimeout(() => {
-                this.router.navigate(['/admin' , 'GROUP'])
-              }  , 400)
+              // setTimeout(() => {
+              //   this.router.navigate(['/admin' , 'GROUP'])
+              // }  , 400)
               
   }
   

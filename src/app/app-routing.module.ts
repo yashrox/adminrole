@@ -10,12 +10,17 @@ import {AdmindetailsComponent} from './admin/admindetails/admindetails.component
 import {GroupComponent} from './group/group.component'
 import {authactivate} from './shared/canactivate' ;
 import {admincheck} from './shared/canact.admin';
+import {GroupAComponent} from './group/group-a/group-a.component'
 
 const routes: Routes = [
     {path : "home" , component : HomeComponent},
     { path : "forms" , component : UserformComponent } ,
     {path : "admin" , component : AdminComponent , canActivate : [authactivate] } ,
-    {path : "admin/GROUP" , component : GroupComponent , canActivate : [authactivate]  },
+    {path : "admin/GROUP" , component : GroupComponent , canActivate : [authactivate] , 
+      children : [ { path : "groupA"   , component : GroupAComponent} , 
+      ]
+      
+    },
     {path : "admin/:id" , component: AdmindetailsComponent , canActivate : [admincheck] } ,
     
     {path : "login" , component : LoginComponent} ,

@@ -2,6 +2,7 @@ import { Component, OnInit , ViewChild } from '@angular/core';
 import {NgForm} from '@angular/forms' ;
 import {Request } from '../../services/formrequest.services' ;
 import {Router}  from '@angular/router'
+import {groups} from '../../services/group.services'
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
 @ViewChild('f') signup : NgForm
 
-  constructor(private reqser : Request ,  private route : Router) { }
+  constructor(private reqser : Request ,  private route : Router , private grps : groups) { }
     
     errval : string
     adminuser : string
@@ -36,8 +37,10 @@ export class LoginComponent implements OnInit {
      
      setTimeout(() => {
        this.reqser.ongetdata() ;
-     } , 1200)
+         this.grps.ongetdataA() ;   
+     } , 1200);
           
+    
      
       this.route.navigate(['/forms']) ;    
   

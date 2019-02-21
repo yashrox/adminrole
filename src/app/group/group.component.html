@@ -4,18 +4,63 @@
         
         
         <div class = "container">
+        
+        <span *ngIf = "!(querycheck === 0)">
+            
+                <router-outlet></router-outlet>
+            </span>
+        
+        <span *ngIf = "querycheck === 0">
         <h1>THESE ARE ALL GROUPS ASSIGN FOR DIFFERENT PROJECTS</h1>
         
         <div class = "row">
-            <div class = "col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class = "col-lg-3 col-md-3 col-sm-6 col-xs-12"> 
             
-            <a [routerLink] = "['/admin' , 'group' , 'groupA']" >
+            <a [routerLink] = "['/admin' , 'GROUP' , 'groupA']"  [queryParams] = "{ allow : true }" >
                 
                 
-                    <table>
+                    <table class="table  table-striped">
                         <h2>GROUP A</h2>
                 <div *ngFor = "let item of groupA">
-                <tr>
+                <tr class = "table-striped">
+                    <td> <label> {{item.name | uppercase}}           ({{item.assign}}) </label></td>
+                    
+                </tr>
+                </div>
+                    </table>
+                </a>
+                
+                
+            
+                </div>
+                
+                <div class = "col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            
+            <a [routerLink] = "['/admin' , 'GROUP' , 'groupA']"  [queryParams] = "{ allow : true }" >
+                
+                
+                    <table class="table  table-striped">
+                        <h2>GROUP A</h2>
+                <div *ngFor = "let item of groupA">
+                <tr class = "table-striped">
+                    <td> <label> {{item.name | uppercase}}           ({{item.assign}}) </label></td>
+                    
+                </tr>
+                </div>
+                    </table>
+                </a>
+                    
+                    </div>
+                    
+                    <div class = "col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            
+            <a [routerLink] = "['/admin' , 'GROUP' , 'groupA']"  [queryParams] = "{ allow : true }" >
+                
+                
+                    <table class="table  table-striped">
+                        <h2>GROUP A</h2>
+                <div *ngFor = "let item of groupA">
+                <tr class = "table-striped">
                     <td> <label> {{item.name | uppercase}}           ({{item.assign}}) </label></td>
                     
                 </tr>
@@ -23,8 +68,28 @@
                     </table>
                 </a>
             
+                    </div>
+                    
+                    <div class = "col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            
+            <a [routerLink] = "['/admin' , 'GROUP' , 'groupA']"  [queryParams] = "{ allow : true }" >
+                
+                
+                    <table class="table  table-striped">
+                        <h2>GROUP A</h2>
+                <div *ngFor = "let item of groupA">
+                <tr class = "table-striped">
+                    <td> <label> {{item.name | uppercase}}           ({{item.assign}}) </label></td>
+                    
+                </tr>
                 </div>
+                    </table>
+                </a>
+            
+                    </div>
+                
             </div>
+            </span>
         </div>        
             
     </body>

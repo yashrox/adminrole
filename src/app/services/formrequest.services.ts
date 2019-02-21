@@ -25,6 +25,10 @@ export class Request {
         .subscribe( (newdata) => {
             console.log(newdata);
             this.userser.setvalue(newdata)
+        } , (error) => {  console.log(error) ;
+                            alert("THERE ERROR IN LOGIN PLEASE LOGIN AGAIN")
+                            this.router.navigate(['/login'])
+                    
         } )
     }
         
@@ -95,7 +99,9 @@ export class Request {
                     .then( (tok) => { this.tokken = tok ;
                         
                     } )
-                    .catch((err) => console.log(err.message) )
+                    .catch((err) => {console.log(err.message);
+                        this.router.navigate(['/login'])
+                    } )
             return this.tokken ;    
     }
     
