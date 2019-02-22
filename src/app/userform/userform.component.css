@@ -1,0 +1,33 @@
+.back{
+             background-image: url(https://conversionxl.com/wp-content/uploads/2016/11/Web-Forms.png);
+            height: 20em;
+}
+
+.front{
+        position: absolute;
+        top : 5em;
+        left : 8em;
+}
+
+.for{
+    background-color: #E6E6FA;
+    margin-top: 1em;
+    width: 45em;
+    margin-left: 15em;
+    padding: 1em;
+}
+
+label{
+    font-size: 1em;
+}
+
+
+input{
+    border : 2px solid lightblue ;
+    border-radius: 5px;
+
+}
+
+input[type=text]:focus {
+  background-color: grey;
+}

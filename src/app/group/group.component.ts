@@ -13,13 +13,25 @@ export class GroupComponent implements OnInit {
   
   groupA : any[] 
   querycheck : number
+  groupB : any[]
+  groupC : any[]
+  groupD  : any[]
     
   ngOnInit() {
             this.groupA = this.grps.getsdataA() ;
             this.grps.newdataA.subscribe( (value) => {  this.groupA = value } );
             this.querycheck = +this.route.snapshot.queryParams ;
             this.route.queryParams.subscribe( (param : Params) => this.querycheck = +param['allow'] );
-            console.log(this.querycheck);
+            
+            this.groupB = this.grps.getsdataB() ;
+            this.grps.newdataB.subscribe( (value) => {  this.groupB = value } );
+            
+            this.groupC = this.grps.getsdataC() ;
+            this.grps.newdataC.subscribe( (value) => {  this.groupC = value } );
+            
+            this.groupD = this.grps.getsdataD() ;
+            this.grps.newdataD.subscribe( (value) => {  this.groupD = value } );
+    
   }
 
     

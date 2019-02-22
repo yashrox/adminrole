@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { formdata } from '../services/formdata.service'
 import {DETAILS} from '../services/user.model'
 import {Request} from '../services/formrequest.services'
-import {ActivatedRoute , Params} from '@angular/router'
+import {ActivatedRoute , Params , Router} from '@angular/router'
 
 @Component({
   selector: 'app-admin',
@@ -11,10 +11,12 @@ import {ActivatedRoute , Params} from '@angular/router'
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private userser :  formdata , private reqser  : Request  , private route : ActivatedRoute) { }
+  constructor(private userser :  formdata , private reqser  : Request  , 
+  private route : ActivatedRoute , private router : Router) { }
   
   userdata : DETAILS[]
   ids : number ;
+  name  : string ;
 
   ngOnInit() {
   
@@ -37,6 +39,8 @@ export class AdminComponent implements OnInit {
   }
 
 
-    
+    admin(i : number){
+      this.router.navigate(['/admin',i]);
+    }
   
 }

@@ -37,7 +37,10 @@ export class LoginComponent implements OnInit {
      
      setTimeout(() => {
        this.reqser.ongetdata() ;
-         this.grps.ongetdataA() ;   
+         this.grps.ongetdataA() ;  
+         this.grps.ongetdataB();
+         this.grps.ongetdataC();
+         this.grps.ongetdataD();
      } , 1200);
           
     

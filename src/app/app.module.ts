@@ -21,6 +21,11 @@ import { GroupComponent } from './group/group.component' ;
 import {authactivate} from './shared/canactivate' ;
 import {admincheck} from './shared/canact.admin';
 import { GroupAComponent } from './group/group-a/group-a.component';
+import { GroupBComponent } from './group/group-b/group-b.component';
+import { GroupCComponent } from './group/group-c/group-c.component';
+import { GroupDComponent } from './group/group-d/group-d.component';
+import {search} from './shared/search.pipe'
+
 
 @NgModule({
   declarations: [
@@ -33,7 +38,10 @@ import { GroupAComponent } from './group/group-a/group-a.component';
     HomeComponent,
     AdmindetailsComponent,
     GroupComponent,
-    GroupAComponent
+    GroupAComponent,
+    GroupBComponent,
+    GroupCComponent,
+    GroupDComponent, search
   ],
   imports: [
     BrowserModule,
@@ -43,7 +51,7 @@ import { GroupAComponent } from './group/group-a/group-a.component';
     HttpClientModule
 
   ],
-  providers: [formdata , Request , adminvalidate , passValidate , groups,authactivate , admincheck],
+  providers: [formdata , Request , adminvalidate , passValidate , groups,authactivate , admincheck ],
   bootstrap: [AppComponent]
 
 })

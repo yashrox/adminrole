@@ -3,7 +3,7 @@
         <div class = "row">
             <div class = "col-lg-12">
                         
-                        <div *ngFor = "let item of dataA">
+                        <div *ngFor = "let item of dataC">
                                 <span *ngIf = "item.assign === 'group-leader' ">
                                         <h1> GROUP LEADER </h1>
                                         <table class = "table table-bordered">
@@ -37,7 +37,7 @@
                         <div class = "col-lg-12">
                             <div>
                                 <h1>FRONTEND DEVELOPERS</h1>
-                            <div *ngFor = "let item of dataA">
+                            <div *ngFor = "let item of dataC">
                                     <span *ngIf = "item.assign === 'frontend' ">
                                     <table class = "table table-bordered">
                                         <thead>
@@ -73,7 +73,7 @@
                         <div class = "col-lg-12">
                             <div>
                                 <h1>BACKEND DEVELOPERS</h1>
-                            <div *ngFor = "let item of dataA">
+                            <div *ngFor = "let item of dataC">
                                     <span *ngIf = "item.assign === 'backend' ">
                                     <table class="table table-bordered">
                                         <thead>
@@ -109,7 +109,7 @@
                         <div class = "col-lg-12">
                             <div>
                                 <h1>DATA ANALYTICS</h1>
-                            <div *ngFor = "let item of dataA">
+                            <div *ngFor = "let item of dataC">
                                     <span *ngIf = "item.assign === 'database' ">
                                 <table class="table table-bordered">
                                         <thead>
@@ -137,13 +137,13 @@
                             </div>
                             </div>
                 </div>
-                
-                
+
+                            
                  <div class = "row">
                         <div class = "col-lg-12">
                             <div>
                                 <h1>TESTER</h1>
-                            <div *ngFor = "let item of dataA">
+                            <div *ngFor = "let item of dataC">
                                     <span *ngIf = "item.assign === 'tester' ">
                                 <table class="table table-bordered">
                                         <thead>
@@ -171,5 +171,6 @@
                             </div>
                             </div>
     </div>
+
 
     </div>

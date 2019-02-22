@@ -80,14 +80,19 @@ export class AdmindetailsComponent implements OnInit {
       
     }else if(this.signdet.value.group === "groupB") {
           
-          console.log("the values in gpB works")
+          this.grp.newvalueB(this.signdet.value) ;
+        this.grp.onputdataB().subscribe((response) => console.log(response));
+          
       
     }else if(this.signdet.value.group === "groupC"){
               
+              this.grp.newvalueC(this.signdet.value) ;
+        this.grp.onputdataC().subscribe((response) => console.log(response));
           
     }else{
           
-              console.log("the values in gpD works")
+              this.grp.newvalueD(this.signdet.value) ;
+        this.grp.onputdataD().subscribe((response) => console.log(response));
           
     }
       
